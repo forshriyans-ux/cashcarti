@@ -1,0 +1,52 @@
+{
+  "name": "permitproof-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --import tsx --watch src/main.ts",
+    "start": "node dist/main.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node --import tsx src/cli.ts migrate",
+    "bootstrap": "node --import tsx src/cli.ts bootstrap",
+    "demo:seed": "node --import tsx src/cli.ts demo",
+    "demo:run": "node scripts/demo.mjs",
+    "retention": "node --import tsx src/cli.ts retention",
+    "test": "vitest run",
+    "evaluate": "node --import tsx tests/evaluate.ts",
+    "api:generate": "node --import tsx scripts/generate-api.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@electric-sql/pglite": "^0.3.0",
+    "@fastify/cors": "^11.0.0",
+    "@fastify/helmet": "^13.0.0",
+    "@fastify/multipart": "^9.0.0",
+    "@fastify/rate-limit": "^10.0.0",
+    "cheerio": "^1.1.0",
+    "dotenv": "^17.0.0",
+    "drizzle-orm": "^0.45.4",
+    "fastify": "^5.0.0",
+    "jose": "^6.0.0",
+    "pdfkit": "^0.17.0",
+    "pg": "^8.0.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pdfkit": "^0.17.0",
+    "@types/pg": "^8.0.0",
+    "drizzle-kit": "^0.31.11",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.10",
+    "tsx": "^4.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "esbuild": "$esbuild"
+  }
+}
